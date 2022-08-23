@@ -19,7 +19,10 @@ result["a*b+c"]=$(($a*$b+$c))
 result["c+a/b"]=$(($c+$a/$b))
 result["a%b+c"]=$(($a%$b+$c))
 
+i=0
 for compute in ${!result[@]}
 do
 	echo "$compute result is ${result[$compute]}"
+	resultList[$i]=${result[$compute]}
+	i=$i+1
 done
