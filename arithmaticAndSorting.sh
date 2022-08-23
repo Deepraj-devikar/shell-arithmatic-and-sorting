@@ -12,4 +12,6 @@ echo -n "Enter c: "
 read c
 declare -i c=$c
 
+result=$(($a+$b*$c))
 
+echo "$result"
