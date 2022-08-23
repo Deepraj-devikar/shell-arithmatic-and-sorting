@@ -29,24 +29,24 @@ done
 
 echo "Result in list ${resultList[@]}"
 
-# Sorting in Descending Order
+# Sorting in Ascending Order
 for (( i=0; i<3; i++ ))
 do
-	max_idx=$i
+	min_idx=$i
 	iPlus1=$(($i+1))
 	for (( j=$iPlus1; j<4; j++ ))
 	do
-		if [ ${resultList[j]} -gt ${resultList[$max_idx]} ]
+		if [ ${resultList[j]} -lt ${resultList[$min_idx]} ]
 		then
-			max_idx=$j
+			min_idx=$j
 		fi
 	done
-	if [ $i -ne $max_idx ]
+	if [ $i -ne $min_idx ]
 	then
 		temp=${resultList[$i]}
-		resultList[$i]=${resultList[$max_idx]}
-		resultList[$max_idx]=$temp
+		resultList[$i]=${resultList[$min_idx]}
+		resultList[$min_idx]=$temp
 	fi
 done
 
-echo "Sorting in Descending Order is ${resultList[@]}"
+echo "Sorting in Ascending Order is ${resultList[@]}"
