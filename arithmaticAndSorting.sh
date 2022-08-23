@@ -12,6 +12,11 @@ echo -n "Enter c: "
 read c
 declare -i c=$c
 
-result=$(($a+$b*$c))
+result[0]=$(($a+$b*$c))
 
-echo "$result"
+result[1]=$(($a*$b+$c))
+
+echo "${result[0]}"
+echo "${result[1]}"
+
+
