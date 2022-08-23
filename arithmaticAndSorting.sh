@@ -26,3 +26,27 @@ do
 	resultList[$i]=${result[$compute]}
 	i=$i+1
 done
+
+echo "Result in list ${resultList[@]}"
+
+# Sorting in Descending Order
+for (( i=0; i<3; i++ ))
+do
+	max_idx=$i
+	iPlus1=$(($i+1))
+	for (( j=$iPlus1; j<4; j++ ))
+	do
+		if [ ${resultList[j]} -gt ${resultList[$max_idx]} ]
+		then
+			max_idx=$j
+		fi
+	done
+	if [ $i -ne $max_idx ]
+	then
+		temp=${resultList[$i]}
+		resultList[$i]=${resultList[$max_idx]}
+		resultList[$max_idx]=$temp
+	fi
+done
+
+echo "Sorting in Descending Order is ${resultList[@]}"
