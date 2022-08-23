@@ -16,7 +16,9 @@ result[0]=$(($a+$b*$c))
 
 result[1]=$(($a*$b+$c))
 
+result[2]=$(($c+$a/$b))
+
 echo "${result[0]}"
 echo "${result[1]}"
-
+echo "${result[2]}"
 
