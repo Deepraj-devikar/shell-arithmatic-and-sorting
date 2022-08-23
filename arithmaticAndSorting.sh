@@ -12,12 +12,14 @@ echo -n "Enter c: "
 read c
 declare -i c=$c
 
-result[0]=$(($a+$b*$c))
-result[1]=$(($a*$b+$c))
-result[2]=$(($c+$a/$b))
-result[3]=$(($a%$b+$c))
+declare -A result
 
-echo "${result[0]}"
-echo "${result[1]}"
-echo "${result[2]}"
-echo "${result[3]}"
+result["a+b*c"]=$(($a+$b*$c))
+result["a*b+c"]=$(($a*$b+$c))
+result["c+a/b"]=$(($c+$a/$b))
+result["a%b+c"]=$(($a%$b+$c))
+
+for compute in ${!result[@]}
+do
+	echo "$compute result is ${result[$compute]}"
+done
